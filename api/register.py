@@ -13,7 +13,8 @@ class handler(BaseHTTPRequestHandler):
 
       name = request_data.get("name")
       phone_number = request_data.get("phone_number")
-      business_name = request_data.get("business_name")
+      # ৩৫ অক্ষরের বেশি যাতে না যায়, তাই লিমিট করে দেওয়া হলো
+      business_name = request_data.get("business_name", "")[:35]
 
       url = "https://api-merchant.carrybee.com/api/v2/merchant/register"
       payload = {
